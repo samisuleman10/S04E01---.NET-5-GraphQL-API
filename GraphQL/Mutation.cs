@@ -67,5 +67,26 @@ namespace CommanderGQL.GraphQL
 
                 return new AddCommandPayload(command);
             }
+
+        // Customer code
+
+        /*
+        [UseDbContext(typeof(AppDbContext))]
+        [GraphQLDescription("Adds a customer.")]
+        public async Task<AddCommandPayload> AddCommandAsync(AddCommandInput input,
+            [ScopedService] AppDbContext context)
+            {
+                var command = new Command{
+                    HowTo = input.HowTo,
+                    CommandLine = input.CommandLine,
+                    PlatformId = input.PlatformId
+                };
+
+                context.Commands.Add(command);
+                await context.SaveChangesAsync();
+
+                return new AddCommandPayload(command);
+            }
+        */
     }
 }

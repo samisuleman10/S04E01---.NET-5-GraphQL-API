@@ -6,6 +6,7 @@ using CommanderGQL.Data;
 using CommanderGQL.GraphQL;
 using CommanderGQL.GraphQL.Commands;
 using CommanderGQL.GraphQL.Platforms;
+using CommanderGQL.GraphQL.Customers;
 using GraphQL.Server.Ui.Voyager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 
 namespace CommanderGQL
 {

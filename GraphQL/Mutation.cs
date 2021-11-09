@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using CommanderGQL.Data;
 using CommanderGQL.GraphQL.Commands;
 using CommanderGQL.GraphQL.Platforms;
+using CommanderGQL.GraphQL.Customers;
 using CommanderGQL.Models;
 using HotChocolate;
 using HotChocolate.Data;
@@ -70,23 +71,25 @@ namespace CommanderGQL.GraphQL
 
         // Customer code
 
-        /*
+        
         [UseDbContext(typeof(AppDbContext))]
         [GraphQLDescription("Adds a customer.")]
-        public async Task<AddCommandPayload> AddCommandAsync(AddCommandInput input,
+        public async Task<AddCustomerPayload> AddCustomerAsync(AddCustomerInput input,
             [ScopedService] AppDbContext context)
             {
-                var command = new Command{
-                    HowTo = input.HowTo,
-                    CommandLine = input.CommandLine,
-                    PlatformId = input.PlatformId
+                var customer = new Customer{
+                    Email = input.Email,
+                    Name = input.Name,
+                    Code = input.Code,
+                    DateAndTime = input.DateAndTime,
+                    IsBlocked = input.IsBlocked
                 };
 
-                context.Commands.Add(command);
+                context.Customers.Add(customer);
                 await context.SaveChangesAsync();
 
-                return new AddCommandPayload(command);
+                return new AddCustomerPayload(customer);
             }
-        */
+        
     }
 }

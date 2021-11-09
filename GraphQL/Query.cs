@@ -39,5 +39,16 @@ namespace CommanderGQL.GraphQL
         {
             return context.Commands;
         }
+
+        [UseDbContext(typeof(AppDbContext))]
+        [UseFiltering]
+        [UseSorting]
+        [GraphQLDescription("Gets the queryable customer")]
+        public IQueryable<Customer> GetCustomer([ScopedService] AppDbContext context)
+        {
+            return context.Customers;
+        }
+
+
     }
 }

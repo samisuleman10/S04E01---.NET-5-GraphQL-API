@@ -32,6 +32,7 @@ namespace CommanderGQL
             (Configuration.GetConnectionString("CommandConStr")));
 
             services
+                
                 .AddGraphQLServer()
                 .AddQueryType<Query>()
                 .AddMutationType<Mutation>()

@@ -22,10 +22,13 @@ namespace CommanderGQL
     public class Startup
     {
         private readonly IConfiguration Configuration;
+        private readonly IWebHostEnvironment _env;
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
+
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -45,9 +48,15 @@ namespace CommanderGQL
                 .AddType<CommandType>()
                 .AddType<AddCommandInputType>()
                 .AddType<AddCommandPayloadType>()
+
+                .AddType<CustomerType>()
+                .AddType<AddCustomerInputType>()
+                .AddType<AddCustomerPayloadType>()
+
                 .AddFiltering()
                 .AddSorting()
-                .AddInMemorySubscriptions();
+                .AddInMemorySubscriptions()
+                .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = _env.IsDevelopment());
                 
         }
 
